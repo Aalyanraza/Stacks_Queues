@@ -1,6 +1,7 @@
 # Stacks and Queues Implementation
 
 This repository contains implementations of Stacks and Queues in C++.
+![stack-vs-queue](https://github.com/Aalyanraza/Stacks_Queues/assets/114768774/d214ff25-99cf-4dfc-befe-b62968297ce6)
 
 ## Overview
 
