@@ -1,87 +1,94 @@
-# Stacks and Queues Implementation
+# Stack and Queue Implementations in C++
 
-This repository contains implementations of Stacks and Queues in C++.
-![stack-vs-queue](https://github.com/Aalyanraza/Stacks_Queues/assets/114768774/d214ff25-99cf-4dfc-befe-b62968297ce6)
+This repository contains C++ implementations of Stack and Queue data structures using templates, along with solutions to various algorithmic problems.
 
-## Overview
+![stack-vs-queue](https://github.com/Aalyanraza/Stacks_Queues/assets/114768774/b4f28a3a-ca80-4f51-9688-883eae520300)
 
-This project provides basic implementations of two fundamental data structures:
+## Stack Implementation
 
-- **Stack**: A Last In First Out (LIFO) data structure where elements are added and removed from the top.
-  
-- **Queue**: A First In First Out (FIFO) data structure where elements are added at the rear and removed from the front.
+The Stack is implemented using a linked list:
+- **Class Name:** `Stack`
+- **Template Type:** Supports any data type `t`
+- **Operations Supported:**
+  - `isEmpty()`: Checks if the stack is empty.
+  - `push(DataItem)`: Pushes an element onto the stack.
+  - `pop()`: Pops and returns the top element from the stack.
+  - `peek()`: Returns the top element without popping.
+  - `clear()`: Clears all elements from the stack.
 
-## Contents
+## Queue Implementation
 
-### Stack Implementation
+The Queue is also implemented using a linked list:
+- **Class Name:** `Queue`
+- **Template Type:** Supports any data type `t`
+- **Operations Supported:**
+  - `enqueue(num)`: Adds an element to the queue.
+  - `dequeue()`: Removes and returns the front element of the queue.
+  - `peek()`: Returns the front element without dequeuing.
+  - `is_empty()`: Checks if the queue is empty.
+  - `clear()`: Clears all elements from the queue.
 
-#### Functions
+## Question 1: Lexicographically Maximum String
 
-- **push(item)**: Adds `item` to the top of the stack.
-  
-- **pop()**: Removes and returns the top element of the stack.
-  
-- **top()**: Returns the top element of the stack without removing it.
-  
-- **isEmpty()**: Checks if the stack is empty.
+### Problem Statement
 
-### Queue Implementation
+Given a string `str` and an integer `k`, find the lexicographically maximum string possible after removing `k` characters.
 
-#### Functions
+### Approach
 
-- **enqueue(item)**: Adds `item` to the rear of the queue.
-  
-- **dequeue()**: Removes and returns the front element of the queue.
-  
-- **front()**: Returns the front element of the queue without removing it.
-  
-- **rear()**: Returns the rear element of the queue without removing it.
-  
-- **isEmpty()**: Checks if the queue is empty.
+- **Algorithm Used:** Stack-based approach to maintain the largest possible string.
+- **Complexity:** O(length of string + k)
+- **Explanation:** 
+  - Traverse the string while maintaining a stack to store characters.
+  - Remove characters from the stack if a larger character is encountered.
+  - Ensure no leading zeroes in the resulting string.
 
-## Getting Started
-
-To use these implementations, clone the repository and compile the code using a C++ compiler that supports C++11 or higher.
-
-## Usage
-
-1. Compile the code.
-2. Execute the compiled program.
-3. Review the example usage to understand how to interact with stacks and queues.
-
-## Example
+### Example
 
 ```cpp
-// Example usage of Stack
-#include <iostream>
-#include "Stack.h" // Assuming Stack.h contains the stack implementation
+string largestString(string str, int k);
+```
+## Question 2: Smallest Positive Integer
 
-int main() {
-    Stack<int> stack;
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
+### Problem Statement
 
-    while (!stack.isEmpty()) {
-        std::cout << stack.top() << " ";
-        stack.pop();
-    }
-    return 0;
-}
+Given a number as a string `number` and an integer `k`, find the smallest possible positive integer after removing `k` digits.
 
-// Example usage of Queue
-#include <iostream>
-#include "Queue.h" // Assuming Queue.h contains the queue implementation
+### Approach
 
-int main() {
-    Queue<int> queue;
-    queue.enqueue(10);
-    queue.enqueue(20);
-    queue.enqueue(30);
+- **Algorithm Used:** Stack-based approach to maintain the smallest possible number.
+- **Complexity:** O(length of string + k)
+- **Explanation:** 
+  - Use a stack to build the smallest possible number:
+    - Traverse the string while maintaining a stack to store digits.
+    - Remove digits from the stack to ensure the smallest number is formed.
+    - Ensure no leading zeroes in the resulting number.
+  
+### Example
 
-    while (!queue.isEmpty()) {
-        std::cout << queue.front() << " ";
-        queue.dequeue();
-    }
-    return 0;
-}
+```cpp
+string solve(string number, int k);
+```
+## Question 3: Maximum Subsequence Sum
+
+### Problem Statement
+
+Given an array `nums` of integers and an integer `k`, find the maximum possible sum of any `k` consecutive elements in the array.
+
+### Approach
+
+- **Algorithm Used:** Sliding window approach with a queue to maintain the sum of `k` elements.
+- **Complexity:** O(n), where n is the size of the array.
+- **Explanation:** 
+  - Use a sliding window of size `k` and a queue to maintain the sum of elements:
+    - Initialize the queue with the sum of the first `k` elements.
+    - Slide through the array and update the maximum sum accordingly.
+    - Adjust the window by adding the next element and removing the previous first element of the window.
+
+### Example
+
+```cpp
+int* maxSubsequence(int nums[], int size, int k);
+```
+
+
